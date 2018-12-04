@@ -30,6 +30,7 @@ public class WorkingWithAppointments {
 
 	public static void createAppointment()
 	{
+		//ExStart: CreateAppointment
 		java.util.Calendar c = java.util.Calendar.getInstance();
 		c.set(2011, 11, 10, 10, 12, 11);
 		Date startDate = c.getTime();
@@ -60,14 +61,17 @@ public class WorkingWithAppointments {
 
         appointment.setCreatedDate(c.getTime());		// Created Date
         appointment.setLastModifiedDate(c.getTime());	//Last Modified Date
+        
         appointment.save("Appointment.ics");
-		
+        //ExEnd: CreateAppointment
 	}
 	
 	public static void loadAppointment()
 	{
+		//ExStart: LoadAppointment	
 		Appointment loadedAppointment = Appointment.load("Appointment.ics");
 		System.out.println("Loaded Appointment details are as follows:");
+		
 		// Display the appointment information on screen
 		System.out.println("Summary: " + loadedAppointment.getSummary());
 		System.out.println("Location: " + loadedAppointment.getLocation());
@@ -78,6 +82,7 @@ public class WorkingWithAppointments {
 		System.out.println("Attendees: " + loadedAppointment.getAttendees());
 		System.out.println("Created Date: " + loadedAppointment.getCreatedDate());
 		System.out.println("Last Modified Date: " + loadedAppointment.getLastModifiedDate());
+		//ExEnd: LoadAppointment
 		System.out.println("Appointment loaded successfully!");
 	}
 	
